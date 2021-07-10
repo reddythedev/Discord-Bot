@@ -216,11 +216,9 @@ s4d.client.on('message', async (s4dmessage) => {
                         max: 1
                     }).then(async (collected) => {
                         s4d.reply = collected.first().content;
+                        s4dmessage.channel.send(String('✅ Uloženo!'));
                         s4dmessage.channel.send(String('✅ Tvůj nabor byl uložen a bude vyhodnocen do 48 hodin.'));
                         s4d.client.channels.cache.get('847125519900082277').send(String(([s4dmessage.member, ' odpověděl na otázku: Řekni nám neco o sobě. odpověď: ', s4d.reply].join(''))));
-                        let a = new MessageButton()
-                            .setLabel('Test')
-                            .setStyle((green));
 
                         s4d.reply = null;
                     }).catch(async (e) => {
