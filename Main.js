@@ -541,6 +541,15 @@ s4d.client.on('ready', async () => {
                 type: "PLAYING"
             }
         });;
+        await delay(Number(15) * 1000);
+        s4d.client.user.setPresence({
+            status: "online",
+            activity: {
+                name: 'https://www.youtube.com/channel/UCwVpo61_6ubUzqLUCh5PbGQ',
+                type: "WATCHING"
+            }
+        });;
+        await delay(Number(15) * 1000);
 
         console.log('ran')
     }
