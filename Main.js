@@ -57,10 +57,8 @@ s4d.client.on('raw', async (packet) => {
         s4d.client.emit(packet.t, guild, channel, message, member, packet.d.emoji.name);
     }
 });
-s4d.client.login('ODQ1NzY4Mzc3OTc2NzUwMTEx.YKlxLg.ZN_kGOs2oLPlTW2ni3IXRH88Ihs').catch((e) => {
-    s4d.tokenInvalid = true;
-    s4d.tokenError = e;
-});
+var arguments2, command, emojis;
+
 
 s4d.client.on('message', async (s4dmessage) => {
     if ((s4dmessage.member).hasPermission('ADMINISTRATOR')) {
@@ -376,10 +374,25 @@ s4d.client.on('message', async (s4dmessage) => {
 
 });
 
+s4d.client.on('message', async (s4dmessage) => {
+    arguments2 = (s4dmessage.content).split(' ');
+    command = arguments2.splice(0, 1)[0];
+    if (command == '=try') {
+        emojis = ['✅', '✅', '✅', '✅', '✅', '✅', '✅', '✅', '❎', '❎', '❎', '❎', '❎', '❎', '❎', '❎', '❎'];
+        await eval((['let emoji1 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji2 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji3 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji4 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji5 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji6 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji7 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji8 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', '\n', 'let emoji9 = `${emojis[Math.floor(Math.random() * emojis.length)]}`;', ['\n', 'if(emoji1 === "undefined")emoji1 = "✅"', '\n', 'if(emoji2 === "undefined")emoji2 = "✅"', '\n', 'if(emoji3 === "undefined")emoji3 = "✅"', '\n', 'if(emoji4 === "undefined")emoji4 = "✅"', '\n', 'if(emoji5 === "undefined")emoji5 = "✅"', '\n', 'if(emoji6 === "undefined")emoji6 = "✅"', '\n', 'if(emoji7 === "undefined")emoji7 = "✅"', '\n', 'if(emoji8 === "undefined")emoji8 = "✅"', '\n', 'if(emoji9 === "undefined")emoji9 = "✅"', ['\n', 's4dmessage.channel.send(`test\\n||${emoji1}||||${emoji2}||||${emoji3}||\\n||${emoji4}||||${emoji5}||||${emoji6}||\\n||${emoji7}||||${emoji8}||||${emoji9}||`).then(msg=>{', ['\n', 'msg.react(\'⏺️\')', '\n', 'const filter = (reaction, user) => {return [\'⏺️\'].includes(reaction.emoji.name) && user.id === s4dmessage.author.id;};', '\n', 'msg.awaitReactions(filter, { max: 1, time: 600000, errors: [\'time\'] }).then(collected => {', '\n', 'const reaction = collected.first();', '\n', 'let ganho = 0', '\n', ['  if(emoji3 === "✅"){if(emoji6 === "✅"){ if(emoji9 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji1 === "✅"){ if(emoji2 === "✅"){if(emoji3 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji1 === "✅"){ if(emoji2 === "✅"){if(emoji3 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji1 === "✅"){ if(emoji5 === "✅"){if(emoji9 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji2 === "✅"){ if(emoji5 === "✅"){if(emoji8 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji4 === "✅"){ if(emoji5 === "✅"){if(emoji6 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji7 === "✅"){ if(emoji8 === "✅"){if(emoji9 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', ' if(emoji7 === "✅"){ if(emoji5 === "✅"){if(emoji3 === "✅"){let o = ganho; ganho = Math.floor(o + 1)}}}', '\n', 'if(ganho === 0){msg.channel.send("0 points")}else{msg.channel.send(`${ganho} points!`)}'].join(''), '\n', '})'].join(''), '\n', '})'].join('')].join('')].join('')));
+    }
+
+});
+
 s4d.client.on('guildMemberRemove', async (param1) => {
     s4d.leavingMember = param1;
     s4d.client.channels.cache.get('710613549537296509').send(String((String(s4d.leavingMember.user.username) + ' Právě dal Alt+F4')));
     s4d.leavingMember = null
+});
+
+s4d.client.login('ODQ1NzY4Mzc3OTc2NzUwMTEx.YKlxLg.ZN_kGOs2oLPlTW2ni3IXRH88Ihs').catch((e) => {
+    s4d.tokenInvalid = true;
+    s4d.tokenError = e;
 });
 
 s4d.client.on('message', async (s4dmessage) => {
