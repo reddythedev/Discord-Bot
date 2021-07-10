@@ -537,7 +537,7 @@ s4d.client.on('ready', async () => {
         s4d.client.user.setPresence({
             status: "online",
             activity: {
-                name: (['S: ', s4d.client.ws.ping, ' ping'].join('')),
+                name: (String(s4d.client.ws.ping) + ' ping'),
                 type: "PLAYING"
             }
         });;
@@ -545,8 +545,8 @@ s4d.client.on('ready', async () => {
         s4d.client.user.setPresence({
             status: "online",
             activity: {
-                name: 'https://www.youtube.com/channel/UCwVpo61_6ubUzqLUCh5PbGQ',
-                type: "WATCHING"
+                name: 'Sub to F3nDyss on YT!',
+                type: "PLAYING"
             }
         });;
         await delay(Number(15) * 1000);
