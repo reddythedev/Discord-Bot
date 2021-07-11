@@ -10,6 +10,7 @@ if (typeof window !== "undefined") {
     Database = require("easy-json-database");
     moment = require('moment');
 }
+
 const {
     MessageButton,
     MessageActionRow
@@ -56,11 +57,14 @@ s4d.client.on('raw', async (packet) => {
         s4d.client.emit(packet.t, guild, channel, message, member, packet.d.emoji.name);
     }
 });
+<<<<<<< HEAD
 s4d.client.login(process.env.DJS_TOKEN).catch((e) => {
     s4d.tokenInvalid = true;
     s4d.tokenError = e;
 });
 
+=======
+>>>>>>> d22288ac97f992bc880a0ee5832e55eaf6145a35
 s4d.client.on('message', async (s4dmessage) => {
     if ((s4dmessage.member).hasPermission('ADMINISTRATOR')) {
         if ((((s4dmessage.content) || '').startsWith('=odmitnout' || '')) || (((s4dmessage.content) || '').startsWith('=Odmitnout' || ''))) {
@@ -215,6 +219,7 @@ s4d.client.on('message', async (s4dmessage) => {
                         max: 1
                     }).then(async (collected) => {
                         s4d.reply = collected.first().content;
+                        s4dmessage.channel.send(String('✅ Uloženo!'));
                         s4dmessage.channel.send(String('✅ Tvůj nabor byl uložen a bude vyhodnocen do 48 hodin.'));
                         s4d.client.channels.cache.get('847125519900082277').send(String(([s4dmessage.member, ' odpověděl na otázku: Řekni nám neco o sobě. odpověď: ', s4d.reply].join(''))));
 
@@ -228,11 +233,10 @@ s4d.client.on('message', async (s4dmessage) => {
                     console.error(e);
                     s4dmessage.channel.send(String((String(s4dmessage.member) + ' Časový limit vypršel, skus to znovu později!')));
                 });
-                s4dmessage.channel.send(String((String(s4dmessage.member) + ' Časový limit vypršel, skus to znovu později!')));
-
                 s4d.reply = null;
             }).catch(async (e) => {
                 console.error(e);
+                s4dmessage.channel.send(String((String(s4dmessage.member) + ' Časový limit vypršel, skus to znovu později!')));
             });
             s4d.reply = null;
         }).catch(async (e) => {
@@ -379,6 +383,11 @@ s4d.client.on('guildMemberRemove', async (param1) => {
     s4d.leavingMember = param1;
     s4d.client.channels.cache.get('710613549537296509').send(String((String(s4d.leavingMember.user.username) + ' Právě dal Alt+F4')));
     s4d.leavingMember = null
+});
+
+s4d.client.login('ODQ1NzY4Mzc3OTc2NzUwMTEx.YKlxLg.ZN_kGOs2oLPlTW2ni3IXRH88Ihs').catch((e) => {
+    s4d.tokenInvalid = true;
+    s4d.tokenError = e;
 });
 
 s4d.client.on('message', async (s4dmessage) => {
@@ -532,14 +541,23 @@ s4d.client.on('ready', async () => {
                 type: "WATCHING"
             }
         });;
-        await delay(Number(600) * 1000);
+        await delay(Number(15) * 1000);
         s4d.client.user.setPresence({
             status: "online",
             activity: {
-                name: (String((s4d.client.guilds.cache.get('532554177772126227')).memberCount) + ' uživatelů'),
-                type: "WATCHING"
+                name: (String(s4d.client.ws.ping) + ' ping'),
+                type: "PLAYING"
             }
         });;
+        await delay(Number(15) * 1000);
+        s4d.client.user.setPresence({
+            status: "online",
+            activity: {
+                name: 'Sub to F3nDyss on YT!',
+                type: "PLAYING"
+            }
+        });;
+        await delay(Number(15) * 1000);
 
         console.log('ran')
     }
